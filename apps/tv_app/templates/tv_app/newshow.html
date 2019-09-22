@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+    {% load static %}
+    <link rel = "stylesheet" href = "{% static 'tv_app/css/style.css' %}">
+</head>
+<body>
+    <div class = "container col-8 offset-2">
+        <h1>Add a New Show</h1>
+        <form action = "/shows/create" method = "post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title" class = "d-block">Title</label>
+                <input type="text" class="form-control" name="title">
+            </div>
+            <div class="form-group col-5 d-inline-block px-0">
+                <label for="network">Network</label>
+                <input type="text" class="form-control" name="network">
+            </div>
+            <div class="form-group col-5 d-inline-block px-0 mx-4">
+                <label for = "release">Release Date</label>
+                <input type = "date" class ="form-control" name = "release">
+            </div>
+            <div class="form-group">
+                <label for = "description">Description</label>
+                <textarea class="form-control" name = "description" rows="6"></textarea>
+            </div>
+            <button type = "submit" class = "btn btn-primary mb-2 mt-2 col-2 offset-5">Create</button>
+        </form>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

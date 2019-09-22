@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Read (One)</title>
+    {% load static %}
+    <link rel = "stylesheet" href = "{% static 'tv_app/css/style.css' %}">
+</head>
+<body>
+    <div class = "container col-10 offset-1">
+        <h1 class = "d-inline-block vertical-align-top col-10">TV Show {{ ID }}</h1>
+        <a href = "/shows" class = "d-inline-block vertical-align-top">Go Back</a>
+    </div>
+    <div class = "container col-8 offset-1 mt-4 mb-3">
+        <p>Title: {{ Title }}</p>
+        <p>Network: {{ Network }}</p>
+        <p>Release Date: {{ Release }}</p>
+        <p class = "h-50">Description: {{ Description }}</p>
+        <p>Last Updated: {{ Update }}</p>
+        <a href = "/shows/{{ ID }}/edit" class = "mx-2">Edit</a>
+        <p class = "d-inline-block"> | </p>
+        <a href = "/shows/{{ ID }}/delete" class = "mx-2">Delete</a>    
+    </div>
+</body>
+</html>
